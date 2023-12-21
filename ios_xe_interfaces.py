@@ -71,7 +71,7 @@ class Test_Cisco_IOS_XE_Interfaces(aetest.Testcase):
                 counter = value['counters']['in_errors']
                 if int(counter) > input_errors_threshold:
                     table.add_row(self.device.alias,intf,str(input_errors_threshold),str(counter),'Failed',style="red")
-                    self.failed_version = int(counter)
+                    self.failed_interface = int(counter)
                 else:
                     table.add_row(self.device.alias,intf,str(input_errors_threshold),str(counter),'Passed',style="green")
             else:
@@ -103,7 +103,7 @@ class Test_Cisco_IOS_XE_Interfaces(aetest.Testcase):
                 counter = value['counters']['out_errors']
                 if int(counter) > output_errors_threshold:
                     table.add_row(self.device.alias,intf,str(output_errors_threshold),str(counter),'Failed',style="red")
-                    self.failed_version = int(counter)
+                    self.failed_interface = int(counter)
                 else:
                     table.add_row(self.device.alias,intf,str(output_errors_threshold),str(counter),'Passed',style="green")
             else:
